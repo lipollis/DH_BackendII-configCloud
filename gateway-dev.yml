@@ -12,3 +12,11 @@ spring:
           uri: lb://BIBLIOTECA
           predicates:
            - Path=/biblioteca/**
+        - id: musicaRoute
+          uri: lb://MUSICA
+          predicates:
+           - Path=/musica/**
+        - id: playlistRoute
+          uri: lb://PLAYLIST
+          predicates:
+           - Path=/playlist/**
