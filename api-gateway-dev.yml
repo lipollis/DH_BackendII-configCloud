@@ -5,12 +5,20 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: apigateway
+          uri: lb://MICRO
+          predicates:
+            - Path=/micro/**
+        - id: accountRoute
+          uri: http://localhost:8080
+          predicates:
+           - Path=/account/**
         - id: usuarioRoute
-          uri: lb://DH-USUARIO
+          uri: lb://API-USUARIO
           predicates:
            - Path=/usuario/**
         - id: contaRoute
-          uri: lb://DH-CONTA
+          uri: lb://API-CONTA
           predicates:
            - Path=/conta/**
           filters:
